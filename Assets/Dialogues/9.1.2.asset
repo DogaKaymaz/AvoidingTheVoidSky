@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2aa1a2e044bb1b4dab75ca6f43210bf, type: 3}
   m_Name: 9.1.2
   m_EditorClassIdentifier: 
-  dialogue: "1) \u201CYes, tell me what you want.\u201D\n2) \"No.\""
+  dialogue: "1) \"No.\"\n2) \u201CYes, tell me what you want.\u201D"
   dialoguePerson: 'Rin:'
   nextDialogue:
-  - {fileID: 11400000, guid: d6cb2ebd3882aed4590986d446fb2f48, type: 2}
   - {fileID: 11400000, guid: 215a457a8c843c44cbeb18be211b71f5, type: 2}
+  - {fileID: 11400000, guid: d6cb2ebd3882aed4590986d446fb2f48, type: 2}

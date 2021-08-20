@@ -12,6 +12,8 @@ public class LatifaSection : MonoBehaviour
     private PlayerMovement scriptPlayerMovement;
     public bool isNearLatifa = false;
     [SerializeField] private Text quitDialogue;
+    
+    public Animator animatorLatifa;
 
     private void Start()
     {
@@ -26,7 +28,12 @@ public class LatifaSection : MonoBehaviour
             cam2.SetActive(true);
             cam3.SetActive(false);
         }
-      
+
+        if (!isNearLatifa)
+        {
+            animatorLatifa.SetFloat("Talking", 0.25f, 0.01f, Time.deltaTime);
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -46,6 +53,7 @@ public class LatifaSection : MonoBehaviour
         isNearLatifa = false;
         cam2.SetActive(true);
         cam3.SetActive(false);
+       
     }
 
 

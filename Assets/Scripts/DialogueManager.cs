@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Canvas dialogueCanvas;
     [SerializeField] private GameObject chosenPanel;
     
+    
     public Transform chosenTransform;
 
     private LatifaSection latifaSectionScript;
@@ -26,6 +27,7 @@ public class DialogueManager : MonoBehaviour
     private float
         chosenTransformChangeablePosition = 0,
         chosenTransformPosition = -453.000000f + 540,
+        animatorsfloat = 0,
         chosenTransformChangeDistance = 40.000000f;
     
 
@@ -42,11 +44,13 @@ public class DialogueManager : MonoBehaviour
         dialogueComponent.text = dialogue.GetDialogue();
         dialoguePersonComponent.text = dialogue.GetDialoguePerson();
         chosenTransformChangeablePosition = chosenTransformPosition;
-        choiceControl = 0;
+        choiceControl = 1;
         chosenTransform.position = new Vector3(960, chosenTransformPosition, 0);
         dialogueCanvas.enabled = false;
         latifaSectionScript = GameObject.Find("Player").GetComponent<LatifaSection>();
         chosenPanel.SetActive(false);
+        animatorsfloat = 0.75f;
+        latifaSectionScript.animatorLatifa.SetFloat("Talking", 0.25f, 0.1f, Time.deltaTime);
 
         // chosenTransform.position = new Vector3(default, chosenTransformPosition+chosenTransformChangeDistance, default);
 
@@ -108,30 +112,40 @@ public class DialogueManager : MonoBehaviour
         
         if (enterToken)
         {
+            
 
             switch(choiceControl)
             {
                 case 0:
                     dialogue = nextDialogue[choiceControl];
+                    animatorsfloat = 0.5f;
+                    enterToken = false;
                     break;
                     
                     case 1:
                         if (nextDialogue[choiceControl] != null)
                         {
                             dialogue = nextDialogue[choiceControl];
+                            animatorsfloat = 1f;
+                            enterToken = false;
                             break;
                         }
 
                         else if(nextDialogue[choiceControl] == null)
                         {
                             dialogue = nextDialogue[choiceControl-1];
+                            animatorsfloat = 0.75f;
+                            enterToken = false;
                             break;
                         }
                         break;
-                       
             }
            
-            
+            if (latifaSectionScript.isNearLatifa==true)
+            {
+                latifaSectionScript.animatorLatifa.SetFloat("Talking", animatorsfloat, 0.01f, Time.deltaTime);
+            }
+            enterToken = false;
             
         }
 
