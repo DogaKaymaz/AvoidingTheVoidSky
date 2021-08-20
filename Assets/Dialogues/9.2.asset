@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2aa1a2e044bb1b4dab75ca6f43210bf, type: 3}
+  m_Name: 9.2
+  m_EditorClassIdentifier: 
+  dialogue: "\u201CGo to Lady Wing\u2019s Cave and bring me the Saliva Box.\u201D"
+  dialoguePerson: 'Latifa:'
+  nextDialogue:
+  - {fileID: 11400000, guid: 7bc206309c31d124389fc0fb02cfc01d, type: 2}
+  - {fileID: 0}
