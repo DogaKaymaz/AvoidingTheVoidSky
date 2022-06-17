@@ -1,2 +1,2 @@
 # AvoidingTheVoidSky
-Uncompleted RPG game.
+Uncompleted RPG.
